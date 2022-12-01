@@ -9,7 +9,7 @@ namespace GraphTheory_Project
     class AdjacencyList
     {
 
-        LinkedList<Tuple<int, int>>[] adjacencyList;
+        public LinkedList<Tuple<int, int>>[] adjacencyList;
 
         // Constructor - creates an empty Adjacency List
         public AdjacencyList(int vertices)

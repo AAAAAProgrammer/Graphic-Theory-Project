@@ -82,38 +82,9 @@ namespace GraphTheory_Project
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;   
         }
  
-        private void CreateMatrix(int Vertex)
-        {
+        
 
-            //this.panl1.Controls.Clear();
-
-            for (int i = Vertex - 1; i <= Vertex; i++)
-            {
-                labl[0] = new Label();
-                labl[0].BorderStyle = BorderStyle.FixedSingle;
-                labl[0].Location = new Point(50+loc, 50 );
-                labl[0].Size = new Size(30, 30);
-                labl[0].Name = "lbl";
-                labl[0].TabIndex = 0;
-                loc += 30;
-                this.panl1.Controls.Add(labl[0]);
-            }
-            if (Vertex != 0)
-            {
-                for (int j = Vertex - 1; j <= Vertex; j++)
-                {
-                    labl[0] = new Label();
-                    labl[0].BorderStyle = BorderStyle.FixedSingle;
-                    labl[0].Location = new Point(50, 50 + loc-30);
-                    labl[0].Size = new Size(30, 30);
-                    labl[0].Name = "lbl";
-                    labl[0].TabIndex = 0;
-                    //loc += 30;
-                    this.panl1.Controls.Add(labl[0]);
-                }
-            }
-
-        }
+        
 
         private void DrawGrid()
         {
@@ -502,10 +473,30 @@ namespace GraphTheory_Project
             //    Console.WriteLine();
 
             //}
-
-
+            listBox1.Items.Clear();
+            string line = "";
             adjacencyList.printAdjacencyList();
-
+            int i = 0;
+            for (int j = 0; j < 10; j++)
+            {
+                listBox1.Items.Add("");
+            }
+            foreach (LinkedList<Tuple<int, int>> list in adjacencyList.adjacencyList)
+            {
+                line = "adjacencyList[" + i + "] ->";
+                Console.Write("adjacencyList[" + i + "] -> ");
+                //listBox1.Items.Insert(i, "adjacencyList[" + i + "] -> ");
+                foreach (Tuple<int, int> edge in list)
+                {
+                    line += edge.Item1 + "--->";
+                    Console.Write(edge.Item1 + "----->");
+                    //listBox1.Items.Insert(i, edge.Item1 + "----->");
+                    //listBox1.Items[i].Add(edge.Item1 + "----->");
+                }
+                listBox1.Items.Add(line);
+                ++i;
+                Console.WriteLine();
+            }
 
             //foreach (var item in AdjList)
             //{
@@ -521,6 +512,11 @@ namespace GraphTheory_Project
             //        Console.WriteLine();
             //    }
             //}
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
