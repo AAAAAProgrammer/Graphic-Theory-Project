@@ -7,3 +7,12 @@ C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\GraphTheory-Project\GraphTh
 C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\GraphTheory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.csproj.GenerateResource.cache
 C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\GraphTheory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.exe
 C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\GraphTheory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.pdb
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\bin\Debug\GraphTheory-Project.exe.config
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\bin\Debug\GraphTheory-Project.exe
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\bin\Debug\GraphTheory-Project.pdb
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory_Project.Properties.Resources.resources
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.csproj.GenerateResource.cache
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.exe
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.pdb
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory_Project.Form1.resources
+C:\Users\HP\Documents\Visual Studio 2019\GraphTheory\Graphic-Theory-Project\GraphTheory-Project\obj\Debug\GraphTheory-Project.csprojAssemblyReference.cache
