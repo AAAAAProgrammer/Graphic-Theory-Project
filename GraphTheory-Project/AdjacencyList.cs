@@ -71,6 +71,8 @@ namespace GraphTheory_Project
                 Console.WriteLine();
             }
         }
+
+
         // Removes the first occurence of an edge and returns true
         // if there was any change in the collection, else false
         public bool removeEdge(int startVertex, int endVertex, int weight)

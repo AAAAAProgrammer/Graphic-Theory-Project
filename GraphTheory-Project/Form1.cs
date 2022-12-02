@@ -16,8 +16,8 @@ namespace GraphTheory_Project
 
     public partial class Form1 : Form
     {
-        LinkedList<int>[] AdjList = new LinkedList<int>[10]; 
-        
+        LinkedList<int>[] AdjList = new LinkedList<int>[10];
+        Graph graph = new Graph(10);
         bool[,] AdjMatrix = new bool[10, 10];
         int[,] IncMatrix = new int[10, 10];
         Point MouseCordinate;
@@ -285,6 +285,7 @@ namespace GraphTheory_Project
                     {
                         item.L.BackColor = Color.Green;
                         item.Degree++;
+                        
                         Line.Add(new node(new Point(x_center+10, y_center+10),item.id));
                         
                         //Line.Add(new Point(x_center+12, y_center+12));
@@ -330,6 +331,8 @@ namespace GraphTheory_Project
                     adjacencyList.addEdgeAtEnd(Line[1].index, Line[0].index, 0);
                     AdjMatrix[Line[0].index, Line[1].index] = true;
                     AdjMatrix[Line[1].index, Line[0].index] = true;
+                    graph.AddEdge(Line[0].index, Line[1].index,false);
+                    graph.AddEdge(Line[0].index, Line[1].index);
                     Line.Clear();
                 }
                 foreach (var item in N)
@@ -358,7 +361,7 @@ namespace GraphTheory_Project
                 DrawGrid();
             }
             else
-            {
+            { 
                //pictureBox1.Invalidated();
             }
         }
@@ -458,65 +461,42 @@ namespace GraphTheory_Project
 
         private void btnAdjLIst_Click(object sender, EventArgs e)
         {
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    Console.Write(i);
-            //    Console.Write("{0} :", AdjList[i]);
-
-
-
-            //    foreach (var item in AdjList[i])
-            //    {
-            //        Console.Write("{0} -->", i);
-            //        Console.Write("{0} -->", item);
-            //    }
-            //    Console.WriteLine();
-
-            //}
+           
             listBox1.Items.Clear();
             string line = "";
             adjacencyList.printAdjacencyList();
             int i = 0;
-            for (int j = 0; j < 10; j++)
-            {
-                listBox1.Items.Add("");
-            }
+            
             foreach (LinkedList<Tuple<int, int>> list in adjacencyList.adjacencyList)
             {
                 line = "adjacencyList[" + i + "] ->";
                 Console.Write("adjacencyList[" + i + "] -> ");
-                //listBox1.Items.Insert(i, "adjacencyList[" + i + "] -> ");
+                               
                 foreach (Tuple<int, int> edge in list)
                 {
                     line += edge.Item1 + "--->";
                     Console.Write(edge.Item1 + "----->");
-                    //listBox1.Items.Insert(i, edge.Item1 + "----->");
-                    //listBox1.Items[i].Add(edge.Item1 + "----->");
+                    
                 }
+             
                 listBox1.Items.Add(line);
                 ++i;
                 Console.WriteLine();
             }
 
-            //foreach (var item in AdjList)
-            //{
-            //    Console.Write("{0} : ", item);
-            //    if (item != null)
-            //    {
-
-
-            //        foreach (var x in item)
-            //        {
-            //            Console.Write("{0} --> ", x);
-            //        }
-            //        Console.WriteLine();
-            //    }
-            //}
         }
-
-        private void button3_Click(object sender, EventArgs e)
+       
+            private void button3_Click(object sender, EventArgs e)
         {
-            
+            graph.DFS();
+            lblDFS.Text= graph.DFS_TEXT;
+           
+
+            }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           lblBFS.Text= graph.BFS(0);
         }
     }
 }
