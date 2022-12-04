@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GraphTheory_Project;
-
+using System.Collections;
 namespace GraphTheory_Project
 {
 
@@ -485,9 +485,29 @@ namespace GraphTheory_Project
             }
 
         }
-       
-            private void button3_Click(object sender, EventArgs e)
+        private void btnDegree_Click(object sender, EventArgs e)
         {
+            listBox2.Items.Clear();
+            string line = "";
+            adjacencyList.printAdjacencyList();
+            int i = 0;
+
+            foreach (LinkedList<Tuple<int, int>> list in adjacencyList.adjacencyList)
+            {
+                line = "Degree Of Vertix [" + i + "] : "+ list.Count.ToString(); ;
+                Console.Write("adjacencyList[" + i + "] -> ");
+
+           
+
+                listBox2.Items.Add(line);
+                ++i;
+                Console.WriteLine();
+            }
+
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            lblDFS.Text = "";
             graph.DFS();
             lblDFS.Text= graph.DFS_TEXT;
            
@@ -496,7 +516,35 @@ namespace GraphTheory_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
+            lblBFS.Text = "";
            lblBFS.Text= graph.BFS(0);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var A = new ArrayList();
+          
+            if (txtInput.Text.Length > 0)
+            {
+               
+                
+
+                foreach (var item in txtInput.Text)
+                {
+                    if (item == ',')
+                        continue;
+                    else
+                        A.Add(Convert.ToInt32( item.ToString()));
+                }
+                if (Graph.graphExists(A, A.Count))
+                    lblResultOfHkimi.Text = "Yes";
+                else
+                    lblResultOfHkimi.Text = "NO";
+                foreach (var item in A)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
     }
 }

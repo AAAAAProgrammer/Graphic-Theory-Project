@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,15 @@ namespace GraphTheory_Project
     public class Graph
     {
         private int _V;
+
+
         LinkedList<int>[] linkedListArray;
+        
         LinkedList<int>[] _adj;
-        public string DFS_TEXT="";
+        
+        public string DFS_TEXT= "DFS :";
+        
+        
         public Graph(int v)
         {
             linkedListArray = new LinkedList<int>[v];
@@ -66,9 +73,9 @@ namespace GraphTheory_Project
                 // Dequeue a vertex from queue
                 // and print it
                 s = queue.First();
-                Console.Write(s + " ");
+                Console.Write(s + "->");
                 queue.RemoveFirst();
-                line += s + " ";
+                line += s + "->";
                 
 
                 LinkedList<int> list = _adj[s];
@@ -115,7 +122,8 @@ namespace GraphTheory_Project
 
         internal void DFSHelper(int src, bool[] visited)
         {
-             DFS_TEXT += src+ "->";
+            
+            DFS_TEXT += src+ "->";
             visited[src] = true;
             Console.Write(src + "->");
             if (linkedListArray[src] != null)
@@ -137,6 +145,50 @@ namespace GraphTheory_Project
             DFSHelper(0, visited);
 
         }
-    
+
+
+
+        // Function that returns true if
+        // a simple graph exists
+        static public bool graphExists(ArrayList a, int n)
+        {
+
+            // Keep performing the operations until one
+            // of the stopping condition is met
+            while (true)
+            {
+
+                // Sort the list in non-decreasing order
+                a.Sort();
+                a.Reverse();
+
+                // Check if all the elements are equal to 0
+                if ((int)a[0] == 0)
+                    return true;
+
+                // Store the first element in a variable
+                // and delete it from the list
+                int v = (int)a[0];
+                a.Remove(a[0]);
+
+                // Check if enough elements
+                // are present in the list
+                if (v > a.Count)
+                    return false;
+
+                // Subtract first element from
+                // next v elements
+                for (int i = 0; i < v; i++)
+                {
+                    a[i] = (int)a[i] - 1;
+
+                    // Check if negative element is
+                    // encountered after subtraction
+                    if ((int)a[i] < 0)
+                        return false;
+                }
+            }
+        }
+
     }
 }
